@@ -27,11 +27,11 @@ jobs:
       - name: Checkout
         uses: actions/checkout@v4
       
-      # 2. Setup pnpm
+      # 2. Setup pnpm (อ่าน version จาก package.json หรือใช้ latest)
       - name: Setup pnpm
         uses: pnpm/action-setup@v3
         with:
-          version: 8
+          version: 9
       
       # 3. Setup Node.js
       - name: Setup Node.js
@@ -40,9 +40,9 @@ jobs:
           node-version: '20'
           cache: 'pnpm'
       
-      # 4. Install dependencies
+      # 4. Install dependencies (ไม่ใช้ frozen-lockfile ใน CI)
       - name: Install dependencies
-        run: pnpm install --frozen-lockfile
+        run: pnpm install --no-frozen-lockfile
       
       # 5. Build Astro site
       - name: Build with Astro
