@@ -27,22 +27,28 @@ jobs:
       - name: Checkout
         uses: actions/checkout@v4
       
-      # 2. Setup Node.js
+      # 2. Setup pnpm
+      - name: Setup pnpm
+        uses: pnpm/action-setup@v3
+        with:
+          version: 8
+      
+      # 3. Setup Node.js
       - name: Setup Node.js
         uses: actions/setup-node@v4
         with:
           node-version: '20'
-          cache: 'npm'
+          cache: 'pnpm'
       
-      # 3. Install dependencies
+      # 4. Install dependencies
       - name: Install dependencies
-        run: npm ci
+        run: pnpm install --frozen-lockfile
       
-      # 4. Build Astro site
+      # 5. Build Astro site
       - name: Build with Astro
-        run: npm run build
+        run: pnpm run build
       
-      # 5. Upload artifact สำหรับ deployment
+      # 6. Upload artifact สำหรับ deployment
       - name: Upload artifact
         uses: actions/upload-pages-artifact@v3
         with:
