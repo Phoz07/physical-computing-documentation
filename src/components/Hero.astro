@@ -1,0 +1,42 @@
+---
+import phycomLogo from "../../public/phycom_logo.svg";
+import Button from "./Button.astro";
+import Container from "./Container.astro";
+import { Image } from "astro:assets";
+---
+
+<section class="min-h-screen flex items-center bg-gray-900">
+  <Container>
+    <div>
+      <Image
+        src={phycomLogo}
+        alt="Physical Computing Logo"
+        class="mx-auto w-96 h-96"
+      />
+    </div>
+    <div class="flex flex-col items-center gap-6">
+      <h1 class="text-4xl font-bold text-center text-white">
+        Helmet Detection System <br />for Automatic Door Access
+      </h1>
+      <p class="max-w-2xl text-xl text-center text-gray-300">
+        ระบบตรวจจับหมวกกันน็อคอัตโนมัติสำหรับควบคุมการเปิด-ปิดประตูไม้กั้น
+        โดยใช้กล้องและ Raspberry Pi
+        เป็นอุปกรณ์หลักในการตรวจจับผู้ขับขี่มอเตอร์ไซค์ที่สวมหมวกกันน็อคหรือไม่
+        ระบบนี้สามารถประมวลผลภาพแบบ real-time
+        และสั่งเปิดไม้กั้นได้ทันทีหากตรวจพบว่าผู้ขับสวมหมวกอย่างถูกต้อง
+        ทั้งยังสามารถเก็บข้อมูลและแสดงผลสถิติผ่าน Dashboard ออนไลน์
+      </p>
+      <div class="flex gap-6">
+        <Button>
+          <a href="https://github.com/Phoz07/physical-computing">Source Code</a>
+        </Button>
+        <Button>
+          <a href="/">Demo App</a>
+        </Button>
+        <Button variant="outline">
+          <a href="#abstract">Abstraction</a>
+        </Button>
+      </div>
+    </div>
+  </Container>
+</section>

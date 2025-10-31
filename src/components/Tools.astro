@@ -1,0 +1,164 @@
+---
+import Container from "./Container.astro";
+
+const tools = [
+  {
+    icon: "🧩",
+    title: "Hardware Components",
+    color: "from-purple-600 to-pink-600",
+    items: [
+      {
+        name: "Raspberry Pi 5",
+        description: "บอร์ดหลักสำหรับประมวลผลและควบคุมระบบ",
+      },
+      {
+        name: "5MP Camera Module",
+        description: "กล้องสำหรับจับภาพผู้ขับขี่",
+      },
+      {
+        name: "Servo Motor / Relay Module",
+        description: "ควบคุมการเปิด-ปิดไม้กั้น",
+      },
+      {
+        name: "LED Display",
+        description: 'แสดงสถานะ เช่น "ผ่านได้" หรือ "กรุณาใส่หมวก"',
+      },
+      {
+        name: "Power Bank และอุปกรณ์ต่อพ่วง",
+        description: "",
+      },
+    ],
+  },
+  {
+    icon: "🧠",
+    title: "AI & Image Processing",
+    color: "from-green-600 to-emerald-600",
+    items: [
+      {
+        name: "OpenCV (cv2)",
+        description: "ใช้ประมวลผลภาพและเชื่อมต่อกล้อง",
+      },
+      {
+        name: "TensorFlow Lite / PyTorch Mobile",
+        description: "สำหรับรันโมเดล AI บน Raspberry Pi",
+      },
+      {
+        name: "YOLOv5 / YOLOv8 (Ultralytics)",
+        description: "โมเดลตรวจจับหมวกกันน็อค",
+      },
+      {
+        name: "NumPy / Pillow (PIL)",
+        description: "จัดการข้อมูลภาพและ array",
+      },
+    ],
+  },
+  {
+    icon: "🌐",
+    title: "Backend & API",
+    color: "from-orange-600 to-red-600",
+    items: [
+      {
+        name: "Hono.js",
+        description: "Framework สำหรับสร้าง REST API",
+      },
+      {
+        name: "Cloudflare D1 (SQLite)",
+        description: "ฐานข้อมูลเก็บข้อมูลการตรวจจับ",
+      },
+      {
+        name: "Cloudflare R2 (S3-Compatible Storage)",
+        description: "เก็บภาพหลักฐาน",
+      },
+      {
+        name: "WebSocket / FastAPI",
+        description: "สำหรับการส่งข้อมูล real-time ระหว่างอุปกรณ์และ Dashboard",
+      },
+    ],
+  },
+  {
+    icon: "💻",
+    title: "Dashboard Frontend",
+    color: "from-indigo-600 to-blue-600",
+    items: [
+      {
+        name: "Next.js (React Framework)",
+        description: "พัฒนา Dashboard แสดงข้อมูลสถิติ",
+      },
+      {
+        name: "Better-Auth",
+        description: "ระบบล็อกอินและจัดการผู้ใช้งาน",
+      },
+      {
+        name: "Shadcn/UI + Tailwind CSS",
+        description: "ออกแบบ UI และกราฟสถิติ",
+      },
+      {
+        name: "WebSocket Client",
+        description: "รับข้อมูลการตรวจจับแบบเรียลไทม์",
+      },
+    ],
+  },
+  {
+    icon: "⚙️",
+    title: "Raspberry Pi Libraries",
+    color: "from-pink-600 to-rose-600",
+    items: [
+      {
+        name: "RPi.GPIO / gpiozero",
+        description: "ควบคุมอุปกรณ์ผ่านขา GPIO",
+      },
+      {
+        name: "picamera2",
+        description: "ใช้งานกล้องสำหรับการจับภาพ",
+      },
+    ],
+  },
+];
+---
+
+<section class="min-h-screen flex items-center py-20 bg-gray-900">
+  <Container>
+    <div class="flex flex-col items-center gap-12">
+      <div class="text-center">
+        <h1 class="text-4xl font-bold mb-6 text-white">
+          Tools Used in the Helmet Detection System
+        </h1>
+        <p class="max-w-2xl text-xl text-gray-300 mx-auto">
+          ระบบตรวจจับหมวกกันน็อคของเราใช้เทคโนโลยีที่ทันสมัยและหลากหลาย
+          ตั้งแต่ฮาร์ดแวร์ที่มีประสิทธิภาพสูง ไปจนถึง AI
+          และซอฟต์แวร์ที่ช่วยให้ระบบทำงานได้อย่างแม่นยำและรวดเร็ว
+        </p>
+      </div>
+
+      <div class="w-full grid gap-8 md:gap-10">
+        {
+          tools.map((category) => (
+            <div class="border border-gray-700 rounded-lg overflow-hidden bg-gray-900">
+              <div class={`bg-gradient-to-r ${category.color} p-6`}>
+                <div class="flex items-center gap-3">
+                  <span class="text-4xl">{category.icon}</span>
+                  <h2 class="text-2xl md:text-3xl font-bold text-white">
+                    {category.title}
+                  </h2>
+                </div>
+              </div>
+
+              <div class="p-6 md:p-8">
+                <div class="grid gap-4 md:grid-cols-2">
+                  {category.items?.map((item) => (
+                    <div class="p-5 rounded-lg border border-gray-700 bg-gray-800 hover:border-gray-600 hover:bg-gray-750 transition-all duration-300">
+                      <h3 class="font-semibold text-white mb-2">{item.name}</h3>
+                      {item.description && (
+                        <p class="text-gray-400">{item.description}</p>
+                      )}
+                    </div>
+                  ))}
+                </div>
+              </div>
+            </div>
+          ))
+        }
+      </div>
+    </div>
+  </Container>
+</section>

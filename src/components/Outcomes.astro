@@ -1,0 +1,35 @@
+---
+import Container from "./Container.astro";
+import { CheckCircle } from "@lucide/astro";
+
+const outcomes = [
+  "ระบบสามารถ ตรวจจับผู้ขับขี่ที่สวมหมวกกันน็อคได้แบบ real-time ด้วยความแม่นยำสูง",
+  "ไม้กั้นเปิดอัตโนมัติ เมื่อผู้ขับใส่หมวก และ แสดงแจ้งเตือนเมื่อไม่ใส่",
+  "ระบบสามารถ ทำงานต่อเนื่องตลอด 24 ชั่วโมง โดยไม่ต้องมีเจ้าหน้าที่ประจำ",
+  "มี Dashboard ออนไลน์ แสดงจำนวนผู้สวมและไม่สวมหมวกในแต่ละวัน",
+  "มหาวิทยาลัยสามารถใช้ข้อมูลนี้ในการวางมาตรการความปลอดภัยและรณรงค์สวมหมวกกันน็อคได้อย่างมีประสิทธิภาพ",
+  "โปรเจกต์สามารถต่อยอดใช้งานใน โรงงาน, หน่วยงานราชการ, หรือพื้นที่ควบคุมความปลอดภัยอื่น ๆ ได้ในอนาคต",
+];
+---
+
+<section class="min-h-screen flex items-center py-20 bg-gray-900">
+  <Container>
+    <div class="flex flex-col items-center gap-12">
+      <h1 class="text-4xl font-bold text-center text-white">
+        Outcomes of the Helmet Detection System
+      </h1>
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-6 w-full max-w-5xl">
+        {
+          outcomes.map((outcome) => (
+            <div class="bg-gray-800 rounded-lg p-6 border border-gray-700 hover:border-green-500 transition-all duration-300">
+              <div class="flex gap-3">
+                <CheckCircle class="w-6 h-6 text-green-400 flex-shrink-0 mt-1" />
+                <p class="text-gray-300">{outcome}</p>
+              </div>
+            </div>
+          ))
+        }
+      </div>
+    </div>
+  </Container>
+</section>
