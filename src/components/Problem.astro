@@ -2,20 +2,26 @@
 import Container from "./Container.astro";
 ---
 
-<section class="flex items-center py-20 bg-gray-900">
+<section class="flex items-center py-12 sm:py-16 md:py-20 bg-[#0a0e27] px-4">
   <Container>
-    <div class="flex flex-col items-center gap-6">
-      <h1 class="text-4xl font-bold text-center text-white">
+    <div class="flex flex-col items-center gap-4 sm:gap-6">
+      <h1
+        class="text-2xl sm:text-3xl md:text-4xl font-bold text-center text-white scroll-fade-in"
+      >
         Problem Statement
       </h1>
-      <p class="max-w-2xl text-xl text-center text-gray-300">
+      <p
+        class="max-w-2xl text-base sm:text-lg md:text-xl text-center text-gray-300 scroll-fade-in"
+      >
         ในปัจจุบันนักศึกษาหลายคนยังขับขี่มอเตอร์ไซค์เข้ามาในมหาวิทยาลัยโดย
         ไม่สวมหมวกกันน็อค แม้ว่าจะมีกฎบังคับและเจ้าหน้าที่คอยตรวจสอบ
         แต่ด้วยข้อจำกัดด้านเวลาและจำนวนบุคลากร
         ทำให้ไม่สามารถตรวจได้ครบทุกคันตลอดเวลา บางครั้งเกิดการพลาดหรือปล่อยผ่าน
         ซึ่งเพิ่มความเสี่ยงต่อความปลอดภัยของผู้ขับขี่และลดภาพลักษณ์ด้านความปลอดภัยของมหาวิทยาลัยโดยรวม
       </p>
-      <p class="max-w-2xl text-xl text-center text-gray-300">
+      <p
+        class="max-w-2xl text-base sm:text-lg md:text-xl text-center text-gray-300 scroll-fade-in"
+      >
         ดังนั้นจึงมีแนวคิดในการพัฒนา ระบบตรวจจับหมวกกันน็อคอัตโนมัติ (Helmet
         Detection System) ที่สามารถทำงานได้ตลอด 24 ชั่วโมง
         โดยไม่ต้องพึ่งสายตามนุษย์ และสามารถควบคุมการเปิดไม้กั้นได้โดยอัตโนมัติ
@@ -24,3 +30,37 @@ import Container from "./Container.astro";
     </div>
   </Container>
 </section>
+
+<script>
+  const observerOptions = {
+    threshold: 0.1,
+    rootMargin: "0px 0px -50px 0px",
+  };
+
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach((entry) => {
+      if (entry.isIntersecting) {
+        entry.target.classList.add("fade-in-visible");
+      }
+    });
+  }, observerOptions);
+
+  document.querySelectorAll(".scroll-fade-in").forEach((el) => {
+    observer.observe(el);
+  });
+</script>
+
+<style>
+  .scroll-fade-in {
+    opacity: 0;
+    transform: translateY(30px);
+    transition:
+      opacity 0.8s ease-out,
+      transform 0.8s ease-out;
+  }
+
+  .fade-in-visible {
+    opacity: 1;
+    transform: translateY(0);
+  }
+</style>
