@@ -5,7 +5,7 @@ const tools = [
   {
     icon: "🧩",
     title: "Hardware Components",
-    color: "from-purple-600 to-pink-600",
+    color: "from-[#FABB04] to-[#F19800]",
     items: [
       {
         name: "Raspberry Pi 5",
@@ -24,7 +24,7 @@ const tools = [
   {
     icon: "🧠",
     title: "AI & Image Processing",
-    color: "from-green-600 to-emerald-600",
+    color: "from-[#FABB04] to-[#F19800]",
     items: [
       {
         name: "OpenCV (cv2)",
@@ -47,19 +47,15 @@ const tools = [
   {
     icon: "🌐",
     title: "Backend & API",
-    color: "from-orange-600 to-red-600",
+    color: "from-[#FABB04] to-[#F19800]",
     items: [
       {
-        name: "Hono.js",
+        name: "Elysia.js",
         description: "Framework สำหรับสร้าง REST API",
       },
       {
-        name: "Cloudflare D1 (SQLite)",
+        name: "PostgreSQL",
         description: "ฐานข้อมูลเก็บข้อมูลการตรวจจับ",
-      },
-      {
-        name: "Cloudflare R2 (S3-Compatible Storage)",
-        description: "เก็บภาพหลักฐาน",
       },
       {
         name: "WebSocket / FastAPI",
@@ -70,15 +66,11 @@ const tools = [
   {
     icon: "💻",
     title: "Dashboard Frontend",
-    color: "from-indigo-600 to-blue-600",
+    color: "from-[#FABB04] to-[#F19800]",
     items: [
       {
         name: "Next.js (React Framework)",
         description: "พัฒนา Dashboard แสดงข้อมูลสถิติ",
-      },
-      {
-        name: "Better-Auth",
-        description: "ระบบล็อกอินและจัดการผู้ใช้งาน",
       },
       {
         name: "Shadcn/UI + Tailwind CSS",
@@ -93,7 +85,7 @@ const tools = [
   {
     icon: "⚙️",
     title: "Raspberry Pi Libraries",
-    color: "from-pink-600 to-rose-600",
+    color: "from-[#FABB04] to-[#F19800]",
     items: [
       {
         name: "RPi.GPIO / gpiozero",
@@ -108,20 +100,16 @@ const tools = [
 ];
 ---
 
-<section
-  class="min-h-screen flex items-center py-12 sm:py-16 md:py-20 bg-[#0a0e27] px-4"
->
+<section class="min-h-screen flex items-center py-12 sm:py-16 md:py-20 px-4">
   <Container>
     <div class="flex flex-col items-center gap-8 sm:gap-10 md:gap-12">
       <div class="text-center scroll-fade-in">
         <h1
-          class="text-2xl sm:text-3xl md:text-4xl font-bold mb-4 sm:mb-6 text-white"
+          class="text-2xl sm:text-3xl md:text-4xl font-bold mb-4 sm:mb-6 drop-shadow-lg"
         >
           Tools Used in the Helmet Detection System
         </h1>
-        <p
-          class="max-w-2xl text-base sm:text-lg md:text-xl text-gray-300 mx-auto px-4"
-        >
+        <p class="max-w-2xl text-base sm:text-lg md:text-xl mx-auto px-4">
           ระบบตรวจจับหมวกกันน็อคของเราใช้เทคโนโลยีที่ทันสมัยและหลากหลาย
           ตั้งแต่ฮาร์ดแวร์ที่มีประสิทธิภาพสูง ไปจนถึง AI
           และซอฟต์แวร์ที่ช่วยให้ระบบทำงานได้อย่างแม่นยำและรวดเร็ว
@@ -131,7 +119,7 @@ const tools = [
       <div class="w-full grid gap-6 sm:gap-8 md:gap-10">
         {
           tools.map((category) => (
-            <div class="border border-gray-700 rounded-lg overflow-hidden bg-gray-900 hover:scale-[1.01] transition-all duration-300 scroll-fade-in">
+            <div class="border border-gray-300 rounded-lg overflow-hidden hover:scale-[1.01] transition-all duration-300 scroll-fade-in">
               <div class={`bg-gradient-to-r ${category.color} p-4 sm:p-6`}>
                 <div class="flex items-center gap-3">
                   <span class="text-3xl sm:text-4xl">{category.icon}</span>
@@ -144,8 +132,8 @@ const tools = [
               <div class="p-4 sm:p-6 md:p-8">
                 <div class="grid grid-cols-1 md:grid-cols-2 gap-3 sm:gap-4">
                   {category.items?.map((item) => (
-                    <div class="p-4 sm:p-5 rounded-lg border border-gray-700 bg-gray-800 hover:border-gray-600 hover:bg-gray-750 hover:scale-105 transition-all duration-300">
-                      <h3 class="font-semibold text-white mb-2 text-sm sm:text-base">
+                    <div class="p-4 sm:p-5 rounded-lg border border-gray-300 bg-white/45 backdrop-blur-2xl hover:border-[#FABB04] hover:bg-gray-750 hover:scale-105 transition-all duration-300">
+                      <h3 class="font-semibold mb-2 text-sm sm:text-base">
                         {item.name}
                       </h3>
                       {item.description && (

@@ -5,5 +5,10 @@ html {
 }
 
 body {
-  @apply text-white;
+  @apply text-[#18181b];
+  font-family: "IBM Plex Sans Thai Looped", sans-serif;
+}
+
+p {
+  @apply text-gray-500;
 }

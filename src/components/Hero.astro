@@ -5,9 +5,7 @@ import Container from "./Container.astro";
 import { Image } from "astro:assets";
 ---
 
-<section
-  class="min-h-screen flex items-center bg-[#0a0e27] relative overflow-hidden px-4"
->
+<section class="min-h-screen flex items-center relative overflow-hidden px-4">
   <!-- Aurora Background Effect -->
   <div class="absolute inset-0 overflow-hidden pointer-events-none">
     <!-- Main gradient background -->
@@ -36,13 +34,11 @@ import { Image } from "astro:assets";
       class="relative z-10 flex flex-col items-center gap-4 sm:gap-6 animate-fade-in-up animation-delay-200"
     >
       <h1
-        class="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-bold text-center text-white drop-shadow-lg"
+        class="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-bold text-center drop-shadow-lg"
       >
         Helmet Detection System <br />for Automatic Door Access
       </h1>
-      <p
-        class="max-w-2xl text-base sm:text-lg md:text-xl text-center text-gray-300 px-4 drop-shadow-md"
-      >
+      <p class="max-w-2xl text-base sm:text-lg md:text-xl text-center px-4">
         ระบบตรวจจับหมวกกันน็อคอัตโนมัติสำหรับควบคุมการเปิด-ปิดประตูไม้กั้น
         โดยใช้กล้องและ Raspberry Pi
         เป็นอุปกรณ์หลักในการตรวจจับผู้ขับขี่มอเตอร์ไซค์ที่สวมหมวกกันน็อคหรือไม่
@@ -58,9 +54,6 @@ import { Image } from "astro:assets";
             href="https://github.com/Phoz07/physical-computing"
             class="block w-full">Source Code</a
           >
-        </Button>
-        <Button>
-          <a href="/" class="block w-full">Demo App</a>
         </Button>
         <Button variant="outline">
           <a href="#abstract" class="block w-full">Abstraction</a>
