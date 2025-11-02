@@ -40,15 +40,19 @@ jobs:
           node-version: '20'
           cache: 'pnpm'
       
-      # 4. Install dependencies (ไม่ใช้ frozen-lockfile ใน CI)
+      # 4. Install dependencies
       - name: Install dependencies
         run: pnpm install --no-frozen-lockfile
       
-      # 5. Build Astro site
+      # 5. Install Sharp for image optimization
+      - name: Install Sharp
+        run: pnpm add sharp
+      
+      # 6. Build Astro site
       - name: Build with Astro
         run: pnpm run build
       
-      # 6. Upload artifact สำหรับ deployment
+      # 7. Upload artifact สำหรับ deployment
       - name: Upload artifact
         uses: actions/upload-pages-artifact@v3
         with:
