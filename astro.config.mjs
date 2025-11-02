@@ -4,9 +4,9 @@ import tailwindcss from "@tailwindcss/vite";
 
 // https://astro.build/config
 export default defineConfig({
-  site: "https://physical-computing-documentation.github.io",
-  base: "/",
   vite: {
     plugins: [tailwindcss()],
   },
+  site: "https://phoz07.github.io",
+  base: "/physical-computing-documentation",
 });
